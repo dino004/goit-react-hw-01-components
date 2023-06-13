@@ -1,11 +1,36 @@
 .profile {
-    max-width: 400px;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .description {
-    width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
 .avatar {
-    width: 100%
+  width: 200px;
+  border: 1px solid green;
+  border-radius: 50%;
+}
+
+.name {
+  text-transform: uppercase;
+}
+
+.quantity {
+  color: brown;
+}
+
+.stats {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border: 1px solid green;
+  text-align: center;
 }
