@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 import data from 'dataFiles/data.json';
-import { getRandomHexColor } from '../utils/GenerationColor';
+import { getRandomHexColor } from '../../utils/GenerationColor';
 
 export const Statistics = ({ title, stats }) => {
   return (
@@ -9,14 +9,14 @@ export const Statistics = ({ title, stats }) => {
       {title && <h2 className={css.title}>{title}</h2>}
 
       <ul className={css.statList}>
-        {data.map(data => (
+        {data.map(({id,label, percentage}) => (
           <li
             style={{ backgroundColor: getRandomHexColor() }}
-            key={data.id}
+            key={id}
             className={css.item}
           >
-            <span className={css.label}>{data.label}</span>
-            <span className={css.percentage}>{data.percentage}%</span>
+            <span className={css.label}>{label}</span>
+            <span className={css.percentage}>{percentage}%</span>
           </li>
         ))}
       </ul>
@@ -25,6 +25,6 @@ export const Statistics = ({ title, stats }) => {
 };
 
 Statistics.propTypes = {
-  title: PropTypes.string.isRequired,
-  stats: PropTypes.object,
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(PropTypes.object),
 };
