@@ -9,7 +9,7 @@ export const Statistics = ({ title, stats }) => {
       {title && <h2 className={css.title}>{title}</h2>}
 
       <ul className={css.statList}>
-        {data.map(({id,label, percentage}) => (
+        {data.map(({ id, label, percentage }) => (
           <li
             style={{ backgroundColor: getRandomHexColor() }}
             key={id}
@@ -26,5 +26,11 @@ export const Statistics = ({ title, stats }) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.arrayOf(PropTypes.object),
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
